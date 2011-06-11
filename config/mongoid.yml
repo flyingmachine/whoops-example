@@ -8,11 +8,11 @@ defaults: &defaults
 
 development:
   <<: *defaults
-  name: whoops_development
+  database: whoops_development
 
 test:
   <<: *defaults
-  name: whoops_test
+  database: whoops_test
 
 # set these environment variables on your prod server
 production:
