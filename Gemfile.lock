@@ -84,7 +84,7 @@ GEM
     treetop (1.4.9)
       polyglot (>= 0.3.1)
     tzinfo (0.3.29)
-    whoops (0.0.4)
+    whoops (0.0.5)
       bson_ext
       haml
       json
