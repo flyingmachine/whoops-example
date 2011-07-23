@@ -752,7 +752,11 @@ fieldset textarea:focus {
   color: #082B33;
   padding: 10px 0;
   text-indent: 40px;
-  font-size: 14px; }
+  font-size: 14px;
+  font-weight: normal; }
+  #main h4.alert_info a {
+    color: #082B33;
+    text-decoration: underline; }
 
 #main h4.alert_warning {
   display: block;
