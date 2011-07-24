@@ -1,0 +1,5 @@
+= Whoops Example
+
+This site is meant to demonstrate the https://github.com/flyingmachine/whoops[Whoops Rails engine].
+
+See https://github.com/flyingmachine/whoops[the Whoops repo on GitHub] for more information.
