@@ -1,20 +1,25 @@
 - content_for :sidebar do
   .space
     %h3 Filters
-    - form_for event_group_filter, :url => whoops_event_groups_path, :html => {:method => "get"} do |f|
-      %ul.filter_selects
-        - filter_options.each do |field_name, options|
-          %li= f.select field_name, options_from_collection_for_select(options, :first, :last, event_group_filter.send(field_name))
-        %li
-          %button#reset reset
+    = form_for event_group_filter, :url => whoops_event_groups_path, :html => {:method => "get"} do |f|
+      = hidden_field_tag 'updating_filters', true
+      - filter_options.each do |field_name, options|
+        %h4= field_name
+        %ul.filter_selects.inputs-list
+          - options.each do |option|
+            %li
+              %label
+                %input{:type => 'checkbox', :name => "whoops_filter[#{field_name}][#{option}]", :checked => filter_checked?(field_name, option)}
+                = option
   .space
-    %h3 Search
-    - form_tag whoops_event_groups_path, :method => "get" do |f|
-      %ul.search
+    %h3 Keyword Search
+    = form_tag whoops_event_groups_path, :method => "get" do |f|
+      %ul.search.unstyled
         %li= text_field_tag :query
-        %li= submit_tag "Submit"
+        %li= submit_tag "Submit", :class => "btn primary"
 
-%h4.alert_info 
+
+.alert-message.block-message
   This web site is a demo of the Whoops engine. Read more on
   = link_to "the Whoops page", "http://www.whoopsapp.com"
   \.
@@ -23,6 +28,7 @@
   = link_to "the Whoops logger demo", "http://whoops-rails-logger-example.heroku.com"
   \.
   
+
 %article.module.width_full
   %header
     %h3 Events
