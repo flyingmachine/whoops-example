@@ -1,7 +1,11 @@
 services = Array.new(10){ Faker::Internet.domain_word }
 service_suffixes = %w{app worker}
-environments = %w{development qa production}
-event_types = %w{info exception warning}
+environments = %w{ development qa production }
+event_types = %w{ info exception warning }
+detail_keys = %w{ person_data address_data email backtrace action query
+params session cookies env time_spent filename lineno avatar num_attempts
+first_name last_name referrer num_successes num_failures person_id user_id
+uuid previous_value delta}
 
 def random_el(arr)
   arr[rand(arr.count)]
@@ -10,7 +14,7 @@ end
 def random_hash(depth)
   h = {}
   (rand(10) + 3).times {
-    h[Faker::Lorem.words(1).first] = random_value(depth)
+    h[random_el(detail_keys)] = random_value(depth)
   }
   h
 end
