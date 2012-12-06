@@ -5,7 +5,7 @@ event_types = %w{ info exception warning }
 detail_keys = %w{ person_data address_data email backtrace action query
 params session cookies env time_spent filename lineno avatar num_attempts
 first_name last_name referrer num_successes num_failures person_id user_id
-uuid previous_value delta}
+uuid previous_value delta }
 
 def random_el(arr)
   arr[rand(arr.count)]
